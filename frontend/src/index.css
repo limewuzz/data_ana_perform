@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --bg: 8 10 15;
+  --panel: 17 20 28;
+  --panel-alt: 24 28 39;
+  --line: 70 78 96;
+  --muted: 155 163 183;
+  --text: 235 239 245;
+  --accent: 72 255 199;
+  --warn: 255 184 76;
+  --danger: 255 107 107;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: rgb(var(--text));
+  background:
+    radial-gradient(circle at top right, rgba(72, 255, 199, 0.18), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(255, 184, 76, 0.12), transparent 18%),
+    linear-gradient(180deg, rgba(17, 20, 28, 0.96), rgba(8, 10, 15, 1));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black, transparent 88%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Sora", sans-serif;
+  }
+
+  .font-mono-ui {
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .panel-surface {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.35)];
+  }
+}
